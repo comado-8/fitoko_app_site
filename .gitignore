@@ -1,0 +1,14 @@
+node_modules
+.pnpm-store
+.DS_Store
+.vscode
+.idea
+*.log
+dist
+
+# local env files
+.env
+.env.*
+
+# build artefacts
+*.local
