@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import './App.css'
 import asset1 from './assets/108-99.webp'
 import asset2 from './assets/143-77.webp'
@@ -31,60 +33,179 @@ import asset39 from './assets/1-1311.svg'
 import asset40 from './assets/1-1302.svg'
 import asset42 from './assets/143-92.svg'
 
+const navItems = [
+  { label: '特徴', target: 'features', icon: asset38 },
+  { label: 'とこペンって？', target: 'tokopen', icon: asset39 },
+  { label: 'とこペンの親指道場', target: 'thumb-dojo', icon: asset40 }
+]
+
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const handleNavClick = (target) => {
+    if (typeof window === 'undefined') return
+
+    const element = document.getElementById(target)
+    if (!element) return
+
+    const yOffset = 80
+    const y = element.getBoundingClientRect().top + window.scrollY - yOffset
+
+    window.scrollTo({ top: y, behavior: 'smooth' })
+    setMenuOpen(false)
+  }
+
+  const iconLineBase =
+    "absolute left-1/2 h-[3px] w-6 -translate-x-1/2 bg-[#374c51] rounded-full transition-all duration-200 ease-in-out"
+
   return (
     <div className="w-full min-h-screen bg-[#fbfdfd] overflow-x-hidden">
       {/* Header */}
-      <header className="w-full px-4 md:px-12 py-4 bg-[#fbfdfd] flex justify-between items-center">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full px-4 md:px-12 py-3 md:py-4 bg-[#fbfdfd]/80 backdrop-blur-md border-b border-[#d7e4e6]/60 flex justify-between items-center">
         <div className="flex justify-start items-center gap-4 md:gap-12">
           <div className="h-8 flex justify-start items-center gap-1">
             <img className="w-[120px] md:w-[186.31px] h-[32px] md:h-[50px]" src={asset27} alt="Fitoko Logo" />
           </div>
         </div>
-        <div className="hidden md:flex justify-start items-center gap-8">
+        <button
+          type="button"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="md:hidden relative w-11 h-11 rounded-lg border border-[#d7e4e6] bg-[#fbfdfd]/90 shadow-[3px_3px_0_#b5c7ca] transition-transform duration-150 hover:translate-y-[1px]"
+        >
+          <span
+            className={`${iconLineBase} ${menuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-[calc(50%-9px)] -translate-y-1/2'}`}
+          ></span>
+          <span
+            className={`${iconLineBase} ${menuOpen ? 'top-1/2 -translate-y-1/2 opacity-0' : 'top-1/2 -translate-y-1/2 opacity-100'}`}
+          ></span>
+          <span
+            className={`${iconLineBase} ${menuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'top-[calc(50%+9px)] -translate-y-1/2'}`}
+          ></span>
+        </button>
+        <nav className="hidden md:flex justify-start items-center gap-8">
           <div className="flex justify-start items-start gap-8">
-            <div className="flex justify-start items-center gap-1">
-              <div className="text-[#374c51] text-[15px] font-medium font-['Public_Sans']">特徴</div>
-              <div className="w-4 h-4 relative overflow-hidden">
-                <img className="w-2 h-1" src={asset38} alt="" />
-              </div>
-            </div>
-            <div className="flex justify-start items-center gap-1">
-              <div className="text-[#374c51] text-[15px] font-medium font-['Public_Sans']">とこペンって？</div>
-              <div className="w-4 h-4 relative overflow-hidden">
-                <img className="w-2 h-1" src={asset39} alt="" />
-              </div>
-            </div>
-            <div className="flex justify-start items-center gap-1">
-              <div className="text-[#374c51] text-[15px] font-medium font-['Public_Sans']">とこペンの親指道場</div>
-              <div className="w-4 h-4 relative overflow-hidden">
-                <img className="w-2 h-1" src={asset40} alt="" />
-              </div>
-            </div>
+            {navItems.map(({ label, target, icon }) => (
+              <button
+                key={target}
+                type="button"
+                onClick={() => handleNavClick(target)}
+                className="group flex items-center gap-1 text-[#374c51] text-[15px] font-semibold font-['Public_Sans'] transition-colors hover:text-[#00808f] cursor-pointer"
+              >
+                <span>{label}</span>
+                <span className="w-5 h-5 flex items-center justify-center transition-transform duration-150 group-hover:translate-y-[2px]">
+                  <img className="w-3 h-2" src={icon} alt="" />
+                </span>
+              </button>
+            ))}
           </div>
-          <div className="px-4 py-2 bg-gradient-to-b from-[#f6e076]/50 to-[#ffb974]/50 rounded-lg flex justify-center items-center cursor-pointer hover:opacity-80 transition-opacity">
-            <div className="text-[#010303] text-[15px] font-medium font-['Public_Sans']">待合室に参加</div>
-          </div>
-        </div>
+          <button
+            type="button"
+            onClick={() => handleNavClick('waitlist')}
+            className="px-4 py-2 bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] rounded-lg flex justify-center items-center cursor-pointer text-[#1b1f20] text-[15px] font-semibold font-['Public_Sans'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
+          >
+            待合室に参加
+          </button>
+        </nav>
       </header>
 
+      {menuOpen && (
+        <div className="fixed inset-x-0 top-[64px] z-40 md:hidden bg-white/95 backdrop-blur-md border-t border-[#d7e4e6] shadow-[0_6px_0_#b5c7ca] flex flex-col items-center gap-6 py-8 px-6">
+          <div className="flex flex-col items-center gap-5 w-full text-center">
+            {navItems.map(({ label, target }) => (
+              <button
+                key={target}
+                type="button"
+                onClick={() => handleNavClick(target)}
+                className="w-full text-[#374c51] text-xl font-semibold font-['Public_Sans'] tracking-wide hover:text-[#00808f] transition-colors"
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => handleNavClick('waitlist')}
+            className="w-full max-w-[280px] px-6 py-3 bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] rounded-lg flex justify-center items-center text-[#0a1a1c] text-base font-semibold font-['Inter'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
+          >
+            待合室に参加
+          </button>
+        </div>
+      )}
+
       {/* Hero Section */}
-      <section className="w-full flex flex-col justify-center items-center gap-[50px] md:gap-[100px]">
-        <div className="w-full h-[400px] md:h-[672px] pb-12 md:pb-24 relative flex flex-col justify-start items-center gap-12 overflow-hidden">
-          <img className="w-full h-full object-cover" src={asset1} alt="Hero Background" />
-          <img className="w-[280px] md:w-[770px] h-auto absolute top-[80px] md:top-[227px] left-1/2 transform -translate-x-1/2 md:left-[45px] md:transform-none z-10" src={asset42} alt="Hero Text" />
-          <div className="w-[250px] md:w-[400px] lg:w-[500px] h-auto absolute top-[20px] md:top-[-50px] right-4 md:right-[100px] z-20">
-            <div className="relative">
-              <img className="w-full h-auto" src={asset2} alt="Phone 1" />
-            </div>
-            <div className="absolute top-[30%] right-[-15%] w-[50%] h-auto">
-              <img className="w-full h-auto" src={asset3} alt="Phone 2" />
+      <section className="pt-24 w-full overflow-hidden">
+        <div className="relative w-[100vw] md:w-[min(100vw,1600px)] mx-auto min-h-[65vh] md:min-h-[70vh] pb-16 md:pb-28">
+          <img className="absolute inset-0 w-[100vw] md:w-full h-full object-cover" src={asset1} alt="Hero Background" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/18 to-transparent" aria-hidden="true"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(63,183,204,0.14),rgba(63,183,204,0)_45%)]" aria-hidden="true"></div>
+          <div className="relative z-10 flex h-full w-full items-center justify-center">
+            <div className="w-full max-w-[1240px] px-6 md:px-12 flex flex-col-reverse md:flex-row items-center md:items-end justify-between gap-14 md:gap-16">
+              <div className="flex w-full max-w-[620px] flex-col items-start gap-6 md:gap-7">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e4e6] bg-white/80 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-['Inter'] tracking-[0.14em] uppercase text-[#006577]/80 shadow-[2px_2px_0_rgba(0,101,119,0.12)]">
+                  <span className="h-2 w-2 rounded-full bg-[#00a2b3]"></span>
+                  <span>Pre-release Preview</span>
+                </div>
+                <h1 className="hero-title">
+                  <span className="hero-title__line">筋トレする</span><br className="hidden sm:block" />
+                  <span className="hero-title__line">体力がない人</span>
+                  <span className="hero-title__badge">専用</span>
+                </h1>
+                <p className="hero-sub">ゲーム感覚のフィットネスアプリ</p>
+                <div className="w-full max-w-[560px] flex flex-col items-start gap-4 ml-0">
+                  <p className="text-[#274046] text-sm sm:text-base md:text-lg font-medium font-['Inter'] leading-relaxed">
+                    <span className="inline-block sm:whitespace-nowrap">運動に自信がなくても、ほんの数分のクエストで“できた”を積み上げる。</span>Fitokoはそんな毎日を届けるために生まれました。
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
+                    <button
+                      type="button"
+                      onClick={() => handleNavClick('waitlist')}
+                      className="px-6 py-3 bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] rounded-lg text-[#0a1a1c] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
+                    >
+                      待合室に参加する
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleNavClick('features')}
+                      className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-lg text-[#006577] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_rgba(0,101,119,0.2)] transition-transform duration-150 hover:translate-y-[1px]"
+                    >
+                      特徴をみる
+                    </button>
+                  </div>
+                  <p className="hero-microcopy">無料・メールのみ・いつでも解除</p>
+                </div>
+              </div>
+              <div className="relative w-[80vw] sm:w-[60vw] md:w-[38vw] lg:w-[34vw] max-w-[600px] flex justify-center md:justify-end overflow-visible">
+                <div className="relative w-full max-w-[560px]">
+                  <img
+                    src={asset2}
+                    width="1292"
+                    height="1435"
+                    fetchpriority="high"
+                    decoding="async"
+                    alt="Fitokoアプリのクエスト画面"
+                    className="w-full h-auto drop-shadow-[18px_20px_48px_rgba(8,32,37,0.25)]"
+                  />
+                  <img
+                    src={asset3}
+                    width="827"
+                    height="981"
+                    decoding="async"
+                    alt="Fitokoアプリの達成カード"
+                    className="absolute bottom-[-12%] right-[-8%] w-[50%] h-auto drop-shadow-[12px_16px_48px_rgba(8,32,37,0.2)] rotate-[-4deg]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
-        <div className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-gradient-to-b from-[#f6e076]/50 to-[#ffb974]/50 shadow-[7px_7px_0px_0px_rgba(198,167,15,0.40)] flex flex-col justify-center items-center gap-[30px] md:gap-[45px]">
+        <section
+          id="waitlist"
+          className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#ffeab0] shadow-[3px_3px_0_#d7b25f] flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+        >
           <div className="w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#006577] text-3xl md:text-5xl font-bold font-['Inter']">Fitokoの待合室はこちら</div>
             <div className="w-full h-0 outline outline-2 outline-offset-[-1px] outline-[#374c51]"></div>
@@ -95,14 +216,20 @@ function App() {
             <div className="flex-1 w-full px-4 py-3 bg-[#fbfdfd] rounded-lg outline outline-[1.50px] outline-offset-[-1.50px] outline-black/0 flex justify-start items-center gap-2">
               <input className="flex-1 bg-transparent text-[#132a2e] text-lg md:text-xl font-normal font-['Public_Sans'] placeholder:text-[#132a2e]/40 outline-none" placeholder="Enter your email" />
             </div>
-            <div className="w-full md:w-auto px-6 py-3 bg-[#0d4e5a] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#0d4e5a]/90 transition-colors">
-              <div className="text-[#fbfdfd] text-lg md:text-xl font-normal font-['Inter']">参加する</div>
-            </div>
+            <button
+              type="button"
+              className="w-full md:w-auto px-6 py-3 bg-[#0d4e5a] rounded-lg flex justify-center items-center text-[#fbfdfd] text-lg md:text-xl font-semibold font-['Inter'] shadow-[3px_3px_0_#06353b] transition-transform duration-150 hover:translate-y-[1px]"
+            >
+              参加する
+            </button>
           </div>
-        </div>
+        </section>
 
         {/* Features Section */}
-        <div className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#fbfdfd]/70 rounded-[20px] shadow-[7px_7px_0px_0px_rgba(28,111,126,0.25)] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4">
+        <section
+          id="features"
+          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+        >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">Fitoko[フィトコ]の特徴</div>
             <div className="w-full text-center text-[#374c51] text-base md:text-xl font-normal font-['Inter']">体力のない人のために設計した、やさしいスタートのアプリ「Fitoko」<br/>サボりがちな日も、体調が揺らぐ日も、"できる一歩"だけでOK！<br/>Fitokoは小さな積み重ねを基礎体力と自信へつなぎ、ジムや筋トレへの橋渡しを目指します。</div>
@@ -153,15 +280,15 @@ function App() {
 
           {/* Phone Screenshots */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-[30px] md:gap-[125px] mt-8">
-            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[0px_24px_48px_-12px_rgba(17,24,39,0.25)]">
+            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[3px_3px_0_rgba(17,24,39,0.2)]">
               <img className="w-[175px] md:w-[227.62px] h-[380px] md:h-[492.87px] absolute left-[12px] md:left-[17px] top-[12px] md:top-[15.78px]" src={asset4} alt="App Screenshot 1" />
               <img className="w-full h-full absolute left-0 top-0" src={asset5} alt="Phone Frame 1" />
             </div>
-            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[0px_24px_48px_-12px_rgba(17,24,39,0.25)]">
+            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[3px_3px_0_rgba(17,24,39,0.2)]">
               <img className="w-[175px] md:w-[227.62px] h-[380px] md:h-[492.87px] absolute left-[12px] md:left-[17px] top-[12px] md:top-[15.78px]" src={asset6} alt="App Screenshot 2" />
               <img className="w-full h-full absolute left-0 top-0" src={asset7} alt="Phone Frame 2" />
             </div>
-            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[0px_24px_48px_-12px_rgba(17,24,39,0.25)]">
+            <div className="w-[200px] md:w-[261px] h-[400px] md:h-[522px] relative shadow-[3px_3px_0_rgba(17,24,39,0.2)]">
               <img className="w-[175px] md:w-[227.62px] h-[380px] md:h-[492.87px] absolute left-[12px] md:left-[17px] top-[12px] md:top-[15.78px]" src={asset8} alt="App Screenshot 3" />
               <img className="w-full h-full absolute left-0 top-0" src={asset9} alt="Phone Frame 3" />
             </div>
@@ -175,7 +302,7 @@ function App() {
 
           {/* Target Audience Cards */}
           <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8 md:gap-[110px] overflow-hidden">
-            <div className="w-full md:w-96 py-[40px] md:py-[60px] bg-[#ccecf2] rounded-lg shadow-[7px_7px_0px_0px_rgba(28,111,126,0.25)] flex flex-col justify-start items-center gap-6">
+            <div className="w-full md:w-96 py-[40px] md:py-[60px] bg-[#ccecf2] rounded-lg shadow-[3px_3px_0_#86bcc7] flex flex-col justify-start items-center gap-6">
               <div className="w-8 h-8 relative overflow-hidden">
                 <img className="w-2 h-4 absolute right-[4px] top-[8px]" src={asset21} alt="" />
                 <img className="w-[9.33px] h-8 absolute left-0 top-0" src={asset22} alt="" />
@@ -187,7 +314,7 @@ function App() {
               </div>
             </div>
             
-            <div className="w-full md:w-96 py-[40px] md:py-[60px] bg-[#f0f0f0] rounded-lg shadow-[7px_7px_0px_0px_rgba(28,111,126,0.25)] flex flex-col justify-start items-center gap-6">
+            <div className="w-full md:w-96 py-[40px] md:py-[60px] bg-[#f0f0f0] rounded-lg shadow-[3px_3px_0_#bdc4c7] flex flex-col justify-start items-center gap-6">
               <div className="w-8 h-8 relative overflow-hidden">
                 <div className="w-[29.33px] h-[29.33px] absolute left-[1.33px] top-[1.33px]">
                   <img className="w-[29.33px] h-2 absolute left-0 top-0" src={asset24} alt="" />
@@ -201,10 +328,13 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Character Section */}
-        <div className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ccecf2] rounded-[20px] shadow-[7px_7px_0px_0px_rgba(28,111,126,0.25)] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4">
+        <section
+          id="tokopen"
+          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ccecf2] rounded-[20px] shadow-[3px_3px_0_#86bcc7] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+        >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">キャラクター紹介</div>
           </div>
@@ -224,10 +354,13 @@ function App() {
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Special Content Section */}
-        <div className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#fbfdfd]/70 rounded-[20px] shadow-[7px_7px_0px_0px_rgba(28,111,126,0.25)] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4">
+        <section
+          id="thumb-dojo"
+          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+        >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">スペシャルコンテンツ</div>
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">とこペンの親指道場</div>
@@ -240,10 +373,10 @@ function App() {
               <div className="w-full text-[#374c51] text-lg md:text-xl font-normal font-['Inter']">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Final CTA Section */}
-        <div className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-gradient-to-b from-[#006577] to-[#0d4e5a] shadow-[7px_7px_0px_0px_rgba(198,167,15,0.40)] flex flex-col justify-center items-center gap-[30px] md:gap-[45px]">
+        <div className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#0c5c66] shadow-[3px_3px_0_#073f46] flex flex-col justify-center items-center gap-[30px] md:gap-[45px]">
           <div className="w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#fbfdfd] text-3xl md:text-5xl font-bold font-['Inter']">Fitokoの待合室に、今すぐ参加しよう！</div>
             <div className="w-full text-center text-[#fbfdfd] text-sm md:text-base font-normal font-['Inter']">※配信停止はメール内リンクからいつでも可能です。<br/>※ 登録情報は通知目的のみに利用します。詳細は［プライバシーポリシー］をご確認ください。</div>
@@ -252,9 +385,12 @@ function App() {
             <div className="flex-1 w-full px-4 py-3 bg-[#fbfdfd] rounded-lg outline outline-[1.50px] outline-offset-[-1.50px] outline-black/0 flex justify-start items-center gap-2">
               <input className="flex-1 bg-transparent text-[#132a2e] text-lg md:text-xl font-normal font-['Public_Sans'] placeholder:text-[#132a2e]/40 outline-none" placeholder="Enter your email" />
             </div>
-            <div className="w-full md:w-auto px-6 py-3 bg-[#f6e076] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#f6e076]/90 transition-colors">
-              <div className="text-[#010303] text-lg md:text-xl font-normal font-['Inter']">参加する</div>
-            </div>
+            <button
+              type="button"
+              className="w-full md:w-auto px-6 py-3 bg-[#ffe066] rounded-lg flex justify-center items-center text-[#0a1a1c] text-lg md:text-xl font-semibold font-['Inter'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
+            >
+              参加する
+            </button>
           </div>
         </div>
 
@@ -268,4 +404,3 @@ function App() {
 }
 
 export default App
-

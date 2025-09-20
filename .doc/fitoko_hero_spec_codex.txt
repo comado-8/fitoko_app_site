@@ -1,0 +1,147 @@
+Fitoko LP – Heroセクション 実装仕様（Codex向け）
+担当: 実装
+目的: キャッチコピー文言は「変更しない」前提で、読みやすさ・訴求力・LCP/CLSを改善。
+
+==============================
+1) 端末（モック）画像のサイズ仕様
+==============================
+レイアウト: 左=テキスト/CTA、右=端末ビジュアルの2カラム。テキスト優先、UIは“何ができるか”が一目でわかる密度に。
+
+■ ブレイクポイント別サイズ
+- Desktop ≥1440px
+  - 端末ブロック幅: コンテナ幅の 36–42%（目安 520–640px）
+  - Hero高さ: min-height: 65–75vh（ファーストビュー内にCTAが収まる）
+  - テキスト列 max-width: 560–640px
+- ~1280px
+  - 端末幅目安: 約500px（または 35–40%）
+- Tablet 768–1024px
+  - スタック配置（上:テキスト/CTA → 下:端末）
+  - 端末幅: 60–70vw（目安 420–520px）
+- Mobile ≤480px
+  - 端末幅: 80–90vw（目安 320–360px）
+  - 端末はテキスト直後、CTAは端末の直前か直後（ABテスト可）
+
+■ 表現のチューニング
+- 影: y=18–24 / blur=48–64（やり過ぎ注意）
+- 端末回転: ±6〜8°まで
+- 背景が明るいので端末外周に 1–2px の外光（アウトグロー）を薄く追加
+- 画像タグに width/height を必ず付与（CLS対策）
+- <picture> で AVIF/WebP 優先、<img fetchpriority="high" decoding="async">（LCP対策）
+- Lottie/短尺動画 UI を使う場合は poster を用意し遅延読込（autoplayはミュート必須）
+
+==============================
+2) キャッチコピーは文言固定で強化（タイポ&レイアウト）
+==============================
+キャッチコピー文言は変更しない。改行/バッジ/配色/余白で“読みやすく強く”。
+
+■ 改行と構造
+- 意図した2–3行に強制改行（例）
+  筋トレする
+  体力がない人 <badge>専用</badge>
+
+- 「専用」はバッジ化して見出し本文の塊から外す（刺さりは保ちつつトーンを和らげる）
+
+■ マーカー（黄色）のチューニング
+- 文字色を一段濃く（例 #0F3C54）
+- マーカーは彩度/不透明度を少し下げる（例 rgba(255,223,94,.55)）
+- テキストの下 2px ほどにオフセットする“下線風マーカー”で可読性を担保
+- CSS例: background: linear-gradient(transparent 62%, var(--marker) 0);
+
+■ フォントスケール
+- 見出し: font-size: clamp(28px, 4.2vw, 48px); line-height: 1.25–1.32; letter-spacing: 0.01–0.02em
+- サブ見出し（「ゲーム感覚の〜」）: 見出しの 70–78%、ウェイトは1段軽く
+- 本文: 16–18px/1.6–1.75
+- 右端の装飾ドット（・）は撤去 or 位置整列（誤植に見えやすいため）
+
+■ CTA
+- 主CTA「待合室に参加する」を1本化（ヘッダ側は弱スタイルに）
+- 主CTA直下にミクロコピー3点を追加（文言はキャッチコピーと独立）
+  ・無料　・メールのみ　・いつでも解除
+- 視線誘導として見出し→CTAに薄い光筋 or 下線延長を右下方向に
+
+==============================
+3) 実装用スニペット（HTML/CSS最小）
+==============================
+※クラス名や変数名は変更可。配色トークンはデザイン側に合わせて置換。
+
+[HTML]
+<h1 class="hero-title">
+  <span class="line mark">筋トレする</span><br>
+  <span class="line mark">体力がない人</span>
+  <span class="badge">専用</span>
+</h1>
+
+<p class="hero-sub">ゲーム感覚のフィットネスアプリ</p>
+
+<div class="hero-ctas">
+  <a class="btn btn-primary" href="#waitlist">待合室に参加する</a>
+  <a class="btn btn-ghost" href="#features">特徴をみる</a>
+  <p class="microcopy">無料・メールのみ・いつでも解除</p>
+</div>
+
+<picture class="hero-visual">
+  <source type="image/avif" srcset="/hero-phone.avif" />
+  <source type="image/webp" srcset="/hero-phone.webp" />
+  <img src="/hero-phone.png" width="560" height="820"
+       alt="Fitokoの画面プレビュー" fetchpriority="high" decoding="async">
+</picture>
+
+[CSS]
+.hero-title{
+  font-weight: 800;
+  font-size: clamp(28px, 4.2vw, 48px);
+  line-height: 1.28;
+  letter-spacing: .015em;
+  color: #0f3c54;
+  margin: 0 0 .5rem;
+}
+.hero-title .mark{
+  background: linear-gradient(transparent 62%, rgba(255,223,94,.55) 0);
+  padding-bottom: .06em;
+}
+.hero-title .badge{
+  display: inline-block;
+  margin-left: .4em;
+  padding: .16em .52em;
+  font-weight: 700;
+  font-size: .58em;
+  line-height: 1;
+  border-radius: 999px;
+  background: #103a54;
+  color: #fff;
+  vertical-align: .08em;
+}
+.hero-sub{
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: 600;
+  color: #0f3c54;
+  opacity: .92;
+  margin: .6rem 0 1rem;
+}
+.hero-ctas .btn-primary{ /* 既存ボタンに合わせて調整可 */ }
+.hero-ctas .btn-ghost{ /* 既存ボタンに合わせて調整可 */ }
+.microcopy{
+  margin-top: .5rem;
+  font-size: .9rem;
+  opacity: .8;
+}
+
+.hero-visual{ width: min(42vw, 640px); }
+@media (max-width: 1280px){
+  .hero-visual{ width: min(40vw, 500px); }
+}
+@media (max-width: 1024px){
+  .hero-visual{ width: min(70vw, 520px); margin-inline: auto; }
+}
+@media (max-width: 480px){
+  .hero-visual{ width: min(90vw, 360px); }
+}
+
+[アクセシビリティ/パフォーマンス備考]
+- 見出し/サブ/本文のコントラスト比をAA以上（小テキスト 4.5:1, 大テキスト 3:1）
+- 画像にはwidth/height属性を付けCLSを防止
+- LCP候補（端末画像 or 主要テキスト）に対して fetchpriority="high"
+- 背景装飾はテキスト背後で明度を上げ、主張を一段弱める（読みやすさ優先）
+- 端末画像は重要部位にUIを載せ、「何ができるアプリか」を即示す
+
+以上。

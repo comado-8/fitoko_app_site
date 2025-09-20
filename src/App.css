@@ -118,3 +118,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+.hero-title {
+  font-weight: 800;
+  font-size: clamp(30px, 4.4vw, 52px);
+  line-height: 1.28;
+  letter-spacing: 0.015em;
+  color: #006577;
+  margin: 0;
+}
+
+.hero-title__line {
+  background: linear-gradient(transparent 62%, rgba(255, 223, 94, 0.55) 0);
+  padding-bottom: 0.08em;
+}
+
+.hero-title__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5em;
+  padding: 0.2em 0.6em;
+  font-weight: 700;
+  font-size: 0.6em;
+  line-height: 1;
+  border-radius: 999px;
+  background: rgba(255, 223, 94, 0.55);
+  color: #006577;
+  vertical-align: 0.08em;
+}
+
+.hero-sub {
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 600;
+  color: #006577;
+  opacity: 0.92;
+  margin: 0.75rem 0 0;
+}
+
+.hero-microcopy {
+  font-size: 0.9rem;
+  color: rgba(15, 60, 84, 0.7);
+}
