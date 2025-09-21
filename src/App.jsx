@@ -143,9 +143,9 @@ function App() {
           <div className="relative z-10 flex h-full w-full items-center justify-center">
             <div className="w-full max-w-[1240px] px-6 md:px-12 md:[padding-inline:calc(var(--spacing)*25)] flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-2 md:gap-6">
               <div className="flex w-full max-w-[620px] flex-col items-start gap-6 md:gap-7">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e4e6] bg-white/80 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-['Inter'] tracking-[0.14em] uppercase text-[#006577]/80 shadow-[2px_2px_0_rgba(0,101,119,0.12)]">
+                <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e4e6] bg-white/80 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-['Inter'] tracking-[0.1em] text-[#006577]/80 shadow-[2px_2px_0_rgba(0,101,119,0.12)]">
                   <span className="h-2 w-2 rounded-full bg-[#00a2b3]"></span>
-                  <span>Pre-release Preview</span>
+                  <span>待合室（事前登録）受付中</span>
                 </div>
                 <h1 className="hero-title">
                   <span className="hero-title__line">筋トレする</span><br className="hidden sm:block" />
