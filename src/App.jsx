@@ -155,7 +155,7 @@ function App() {
                 </h1>
                 <div className="w-full max-w-[560px] flex flex-col items-start gap-4 ml-0">
                   <p className="text-[#274046] text-sm sm:text-base md:text-lg font-medium font-['Inter'] leading-relaxed">
-                    <span className="inline-block sm:whitespace-nowrap">運動に自信がなくても、ほんの数分のクエストで“できた”を積み上げる。</span>Fitokoはそんな毎日を届けるために生まれました。
+                    <span className="inline-block sm:whitespace-nowrap">体力に自信がなくても、ほんの数分のクエストで“できた”を積み上げる。</span>Fitokoはそんな毎日を届けるために生まれました。
                   </p>
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full">
                     <button
