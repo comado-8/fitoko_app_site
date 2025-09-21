@@ -140,10 +140,8 @@ function App() {
           <img className="absolute inset-0 w-[100vw] md:w-full h-full object-cover" src={asset1} alt="Hero Background" />
           <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/18 to-transparent" aria-hidden="true"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(63,183,204,0.14),rgba(63,183,204,0)_45%)]" aria-hidden="true"></div>
-          <div className="hidden xl:block absolute top-[18%] right-[14%] w-[360px] h-[360px] rounded-full bg-[radial-gradient(circle,rgba(255,224,102,0.25),rgba(255,224,102,0)_65%)] blur-2xl"></div>
-          <div className="hidden xl:block absolute bottom-[20%] right-[4%] w-[420px] h-[420px] rounded-[120px] bg-[linear-gradient(135deg,rgba(255,255,255,0.45)_0%,rgba(204,236,242,0.55)_45%,rgba(255,255,255,0)_100%)]"></div>
           <div className="relative z-10 flex h-full w-full items-center justify-center">
-            <div className="w-full max-w-[1320px] px-6 md:px-12 xl:px-16 md:[padding-inline:calc(var(--spacing)*25)] flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-4 md:gap-8 xl:gap-12">
+            <div className="w-full max-w-[1240px] px-6 md:px-12 md:[padding-inline:calc(var(--spacing)*25)] flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-2 md:gap-6">
               <div className="flex w-full max-w-[620px] flex-col items-start gap-6 md:gap-7">
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e4e6] bg-white/80 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-['Inter'] tracking-[0.1em] text-[#006577]/80 shadow-[2px_2px_0_rgba(0,101,119,0.12)]">
                   <span className="h-2 w-2 rounded-full bg-[#00a2b3]"></span>
@@ -176,24 +174,10 @@ function App() {
                     </button>
                   </div>
                   <p className="hero-microcopy">無料・メールのみ・いつでも解除</p>
-                  <ul className="hidden xl:flex items-center gap-4 text-[#274046] text-sm font-medium">
-                    <li className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-[2px_2px_0_rgba(15,60,84,0.12)]">
-                      <span className="h-2 w-2 rounded-full bg-[#00a2b3]"></span>
-                      <span>1日3分から始められる</span>
-                    </li>
-                    <li className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-[2px_2px_0_rgba(15,60,84,0.12)]">
-                      <span className="h-2 w-2 rounded-full bg-[#f5a623]"></span>
-                      <span>ストレッチ動画＆ガイド付き</span>
-                    </li>
-                    <li className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-[2px_2px_0_rgba(15,60,84,0.12)]">
-                      <span className="h-2 w-2 rounded-full bg-[#8bc34a]"></span>
-                      <span>体調メモで振り返りも簡単</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
-              <div className="relative w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[34vw] xl:w-[32vw] max-w-[620px] flex justify-center md:justify-end overflow-visible">
-                <div className="relative w-full max-w-[620px] xl:max-w-[660px]">
+              <div className="relative w-[78vw] sm:w-[58vw] md:w-[36vw] lg:w-[32vw] max-w-[560px] flex justify-center md:justify-end overflow-visible">
+                <div className="relative w-full max-w-[560px]">
                   <img
                     src={asset2}
                     width="1292"
@@ -209,18 +193,8 @@ function App() {
                     height="981"
                     decoding="async"
                     alt="Fitokoアプリの達成カード"
-                    className="absolute bottom-[-8%] right-[-4%] w-[48%] h-auto drop-shadow-[12px_16px_48px_rgba(8,32,37,0.2)] rotate-[-4deg]"
+                    className="absolute bottom-[-10%] right-[-6%] w-[48%] h-auto drop-shadow-[12px_16px_48px_rgba(8,32,37,0.2)] rotate-[-4deg]"
                   />
-                  <div className="hidden xl:flex absolute left-[-12%] bottom-[8%] flex-col gap-3">
-                    <div className="px-5 py-3 rounded-2xl bg-white/85 backdrop-blur-sm shadow-[6px_8px_32px_rgba(9,36,43,0.15)] text-[#0f3c54] text-sm font-medium">
-                      <span className="block text-xs text-[#00a2b3] font-semibold mb-1">今日のクエスト</span>
-                      <span className="block">ベッドの上でできるストレッチ</span>
-                    </div>
-                    <div className="px-5 py-3 rounded-2xl bg-white/80 backdrop-blur-sm shadow-[6px_8px_32px_rgba(9,36,43,0.12)] text-[#0f3c54] text-sm font-medium">
-                      <span className="block text-xs text-[#f5a623] font-semibold mb-1">きょうのポイント</span>
-                      <span className="block">+5pt できた！を記録しました</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
