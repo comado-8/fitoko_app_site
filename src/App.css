@@ -164,3 +164,7 @@
 .hero-sub--inline {
   display: block;
 }
+
+.hero-cta-button {
+  cursor: pointer;
+}

@@ -161,14 +161,14 @@ function App() {
                     <button
                       type="button"
                       onClick={() => handleNavClick('waitlist')}
-                      className="px-6 py-3 bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] rounded-lg text-[#0a1a1c] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
+                      className="hero-cta-button px-6 py-3 bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] rounded-lg text-[#0a1a1c] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_#c39c1f] transition-transform duration-150 hover:translate-y-[1px]"
                     >
                       待合室に参加する
                     </button>
                     <button
                       type="button"
                       onClick={() => handleNavClick('features')}
-                      className="px-6 py-3 bg-white/80 backdrop-blur-sm rounded-lg text-[#006577] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_rgba(0,101,119,0.2)] transition-transform duration-150 hover:translate-y-[1px]"
+                      className="hero-cta-button px-6 py-3 bg-white/80 backdrop-blur-sm rounded-lg text-[#006577] text-base md:text-lg font-semibold font-['Inter'] shadow-[3px_3px_0_rgba(0,101,119,0.2)] transition-transform duration-150 hover:translate-y-[1px]"
                     >
                       特徴をみる
                     </button>
