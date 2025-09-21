@@ -135,7 +135,7 @@ function App() {
       )}
 
       {/* Hero Section */}
-      <section className="pt-24 w-full overflow-hidden">
+      <section className="-mt-6 sm:-mt-8 md:-mt-10 pt-24 md:pt-28 w-full overflow-hidden">
         <div className="relative w-[100vw] md:w-[min(100vw,1600px)] mx-auto min-h-[62vh] md:min-h-[68vh] py-14 md:py-20">
           <img className="absolute inset-0 w-[100vw] md:w-full h-full object-cover" src={asset1} alt="Hero Background" />
           <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/18 to-transparent" aria-hidden="true"></div>
@@ -203,7 +203,7 @@ function App() {
         {/* CTA Section */}
         <section
           id="waitlist"
-          className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#ffeab0] shadow-[3px_3px_0_#d7b25f] flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+          className="mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#ffeab0] shadow-[3px_3px_0_#d7b25f] flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
         >
           <div className="w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#006577] text-3xl md:text-5xl font-bold font-['Inter']">Fitokoの待合室はこちら</div>
@@ -227,7 +227,7 @@ function App() {
         {/* Features Section */}
         <section
           id="features"
-          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+          className="mt-24 md:mt-32 w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
         >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">Fitoko[フィトコ]の特徴</div>
@@ -332,7 +332,7 @@ function App() {
         {/* Character Section */}
         <section
           id="tokopen"
-          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ccecf2] rounded-[20px] shadow-[3px_3px_0_#86bcc7] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+          className="mt-24 md:mt-32 w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ccecf2] rounded-[20px] shadow-[3px_3px_0_#86bcc7] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
         >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">キャラクター紹介</div>
@@ -358,7 +358,7 @@ function App() {
         {/* Special Content Section */}
         <section
           id="thumb-dojo"
-          className="w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
+          className="mt-24 md:mt-32 w-full max-w-[1346px] px-4 md:px-28 py-12 md:py-24 bg-[#ffffff] rounded-[20px] shadow-[3px_3px_0_#1a6c79] flex flex-col justify-start items-center gap-[25px] md:gap-[35px] mx-4 scroll-mt-24"
         >
           <div className="w-full max-w-[837px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#374c51] text-3xl md:text-5xl font-bold font-['Inter']">スペシャルコンテンツ</div>
@@ -375,7 +375,7 @@ function App() {
         </section>
 
         {/* Final CTA Section */}
-        <div className="w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#0c5c66] shadow-[3px_3px_0_#073f46] flex flex-col justify-center items-center gap-[30px] md:gap-[45px]">
+        <div className="mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#0c5c66] shadow-[3px_3px_0_#073f46] flex flex-col justify-center items-center gap-[30px] md:gap-[45px]">
           <div className="w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
             <div className="w-full text-center text-[#fbfdfd] text-3xl md:text-5xl font-bold font-['Inter']">Fitokoの待合室に、今すぐ参加しよう！</div>
             <div className="w-full text-center text-[#fbfdfd] text-sm md:text-base font-normal font-['Inter']">※配信停止はメール内リンクからいつでも可能です。<br/>※ 登録情報は通知目的のみに利用します。詳細は［プライバシーポリシー］をご確認ください。</div>
