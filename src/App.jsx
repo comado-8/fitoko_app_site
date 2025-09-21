@@ -136,13 +136,13 @@ function App() {
 
       {/* Hero Section */}
       <section className="pt-24 w-full overflow-hidden">
-        <div className="relative w-[100vw] md:w-[min(100vw,1600px)] mx-auto min-h-[65vh] md:min-h-[70vh] py-16 md:py-24">
+        <div className="relative w-[100vw] md:w-[min(100vw,1600px)] mx-auto min-h-[62vh] md:min-h-[68vh] py-14 md:py-20">
           <img className="absolute inset-0 w-[100vw] md:w-full h-full object-cover" src={asset1} alt="Hero Background" />
           <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/18 to-transparent" aria-hidden="true"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(63,183,204,0.14),rgba(63,183,204,0)_45%)]" aria-hidden="true"></div>
           <div className="relative z-10 flex h-full w-full items-center justify-center">
-            <div className="w-full max-w-[1240px] px-6 md:px-12 md:[padding-inline:calc(var(--spacing)*25)] flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-2 md:gap-6">
-              <div className="flex w-full max-w-[620px] flex-col items-start gap-6 md:gap-7">
+            <div className="w-full max-w-[1320px] px-6 md:px-12 xl:px-16 md:[padding-inline:calc(var(--spacing)*25)] flex flex-col-reverse md:flex-row items-center md:items-center justify-between gap-4 md:gap-10">
+              <div className="flex w-full max-w-[660px] flex-col items-start gap-6 md:gap-7">
                 <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e4e6] bg-white/80 backdrop-blur-sm px-4 py-2 text-xs sm:text-sm font-['Inter'] tracking-[0.1em] text-[#006577]/80 shadow-[2px_2px_0_rgba(0,101,119,0.12)]">
                   <span className="h-2 w-2 rounded-full bg-[#00a2b3]"></span>
                   <span>待合室（事前登録）受付中</span>
@@ -176,8 +176,8 @@ function App() {
                   <p className="hero-microcopy">無料・メールのみ・いつでも解除</p>
                 </div>
               </div>
-              <div className="relative w-[78vw] sm:w-[58vw] md:w-[36vw] lg:w-[32vw] max-w-[560px] flex justify-center md:justify-end overflow-visible">
-                <div className="relative w-full max-w-[560px]">
+              <div className="relative w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[36vw] xl:w-[34vw] max-w-[640px] flex justify-center md:justify-end overflow-visible">
+                <div className="relative w-full max-w-[640px]">
                   <img
                     src={asset2}
                     width="1292"
@@ -193,7 +193,7 @@ function App() {
                     height="981"
                     decoding="async"
                     alt="Fitokoアプリの達成カード"
-                    className="absolute bottom-[-10%] right-[-6%] w-[48%] h-auto drop-shadow-[12px_16px_48px_rgba(8,32,37,0.2)] rotate-[-4deg]"
+                    className="absolute bottom-[-8%] right-[-4%] w-[46%] h-auto drop-shadow-[12px_16px_48px_rgba(8,32,37,0.2)] rotate-[-4deg]"
                   />
                 </div>
               </div>
