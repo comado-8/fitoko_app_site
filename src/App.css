@@ -137,7 +137,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0.5em;
+  margin-left: 0.4em;
   padding: 0.2em 0.6em;
   font-weight: 700;
   font-size: 0.6em;
@@ -145,7 +145,7 @@
   border-radius: 999px;
   background: rgba(255, 223, 94, 0.55);
   color: #006577;
-  vertical-align: 0.08em;
+  vertical-align: text-bottom;
 }
 
 .hero-sub {
