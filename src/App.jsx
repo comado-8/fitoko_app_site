@@ -173,7 +173,6 @@ function App() {
                       特徴をみる
                     </button>
                   </div>
-                  <p className="hero-microcopy">無料・メールのみ・いつでも解除</p>
                 </div>
               </div>
               <div className="relative w-[80vw] sm:w-[60vw] md:w-[40vw] lg:w-[36vw] xl:w-[34vw] max-w-[640px] flex justify-center md:justify-end overflow-visible">
