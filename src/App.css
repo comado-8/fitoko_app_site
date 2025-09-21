@@ -160,3 +160,7 @@
   font-size: 0.9rem;
   color: rgba(15, 60, 84, 0.7);
 }
+
+.hero-sub--inline {
+  display: block;
+}

@@ -148,10 +148,10 @@ function App() {
                   <span>待合室（事前登録）受付中</span>
                 </div>
                 <h1 className="hero-title">
-                  <span className="hero-title__line">筋トレする</span><br className="hidden sm:block" />
+                  <span className="hero-title__line">筋トレする</span><br />
                   <span className="hero-title__line">体力がない人</span>
-                  <span className="hero-title__badge">専用</span>
-                  <p className="hero-sub">ゲーム感覚のフィットネスアプリ</p>
+                  <span className="hero-title__badge">専用</span><br className="block sm:hidden" />
+                  <span className="hero-sub hero-sub--inline">ゲーム感覚のフィットネスアプリ</span>
                 </h1>
                 <div className="w-full max-w-[560px] flex flex-col items-start gap-4 ml-0">
                   <p className="text-[#274046] text-sm sm:text-base md:text-lg font-medium font-['Inter'] leading-relaxed">
