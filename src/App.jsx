@@ -151,8 +151,8 @@ function App() {
                   <span className="hero-title__line">筋トレする</span><br className="hidden sm:block" />
                   <span className="hero-title__line">体力がない人</span>
                   <span className="hero-title__badge">専用</span>
+                  <p className="hero-sub">ゲーム感覚のフィットネスアプリ</p>
                 </h1>
-                <p className="hero-sub">ゲーム感覚のフィットネスアプリ</p>
                 <div className="w-full max-w-[560px] flex flex-col items-start gap-4 ml-0">
                   <p className="text-[#274046] text-sm sm:text-base md:text-lg font-medium font-['Inter'] leading-relaxed">
                     <span className="inline-block sm:whitespace-nowrap">運動に自信がなくても、ほんの数分のクエストで“できた”を積み上げる。</span>Fitokoはそんな毎日を届けるために生まれました。
