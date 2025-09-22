@@ -221,7 +221,7 @@ function App() {
             width="210"
             height="170"
             alt="寝転ぶとこペン"
-            className="hidden md:block absolute right-[-112px] md:right-[-120px] bottom-[36px] md:bottom-[48px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
+            className="hidden md:block absolute right-[8px] md:right-0 bottom-[60px] md:bottom-[72px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
