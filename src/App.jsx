@@ -212,7 +212,7 @@ function App() {
             width="230"
             height="230"
             alt="手を振るとこペン"
-            className="hidden md:block absolute left-[-60px] md:left-[-40px] top-1/2 -translate-y-1/2 w-[200px] lg:w-[240px] xl:w-[260px] rotate-[8deg] pointer-events-none select-none"
+            className="hidden md:block absolute left-[-120px] md:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] lg:w-[240px] xl:w-[260px] rotate-[8deg] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
@@ -221,7 +221,7 @@ function App() {
             width="210"
             height="170"
             alt="寝転ぶとこペン"
-            className="hidden md:block absolute right-[-20px] bottom-[-12px] md:bottom-[-16px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
+            className="hidden md:block absolute right-[-8px] md:right-[-12px] bottom-[10px] md:bottom-0 w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
