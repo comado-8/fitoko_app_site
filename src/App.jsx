@@ -205,14 +205,14 @@ function App() {
         {/* CTA Section */}
         <section
           id="waitlist"
-          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-r from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] rounded-[20px] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] rounded-[20px] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
         >
           <img
             src={tokopenStanding}
             width="230"
             height="230"
             alt="手を振るとこペン"
-            className="hidden md:block absolute left-[-24px] bottom-[-12px] w-[180px] lg:w-[220px] xl:w-[240px] pointer-events-none select-none"
+            className="hidden md:block absolute left-[-60px] md:left-[-40px] top-1/2 -translate-y-1/2 w-[200px] lg:w-[240px] xl:w-[260px] rotate-[8deg] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
@@ -221,7 +221,7 @@ function App() {
             width="210"
             height="170"
             alt="寝転ぶとこペン"
-            className="hidden md:block absolute right-[-16px] bottom-[-40px] w-[160px] lg:w-[190px] xl:w-[210px] pointer-events-none select-none"
+            className="hidden md:block absolute right-[-20px] bottom-[-12px] md:bottom-[-16px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
