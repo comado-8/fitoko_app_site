@@ -203,15 +203,33 @@ function App() {
         {/* CTA Section */}
         <section
           id="waitlist"
-          className="mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[100px] bg-[#ffeab0] shadow-[3px_3px_0_#d7b25f] flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-r from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] rounded-[20px] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
         >
-          <div className="w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden">
+          <img
+            src={tokopenStanding}
+            width="230"
+            height="230"
+            alt="手を振るとこペン"
+            className="hidden md:block absolute left-[-24px] bottom-[-12px] w-[180px] lg:w-[220px] xl:w-[240px] pointer-events-none select-none"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src={tokopenRelax}
+            width="210"
+            height="170"
+            alt="寝転ぶとこペン"
+            className="hidden md:block absolute right-[-16px] bottom-[-40px] w-[160px] lg:w-[190px] xl:w-[210px] pointer-events-none select-none"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="relative z-10 w-full max-w-[800px] flex flex-col justify-start items-start gap-[15px] overflow-hidden text-[#0f3c54]">
             <div className="w-full text-center text-[#006577] text-3xl md:text-5xl font-bold font-['Inter']">Fitokoの待合室はこちら</div>
             <div className="w-full h-0 outline outline-2 outline-offset-[-1px] outline-[#374c51]"></div>
             <div className="w-full text-center text-[#374c51] text-lg md:text-2xl font-semibold font-['Inter']">メールアドレスを入力し待合室に参加すると、<br/>リリース時にいち早くご案内します。</div>
             <div className="w-full text-center text-[#374c51] text-sm md:text-base font-normal font-['Inter']">※配信停止はメール内リンクからいつでも可能です。<br/>※ 登録情報は通知目的のみに利用します。詳細は［プライバシーポリシー］をご確認ください。</div>
           </div>
-          <div className="w-full max-w-[600px] h-auto flex flex-col md:flex-row justify-start items-start gap-3">
+          <div className="relative z-10 w-full max-w-[600px] h-auto flex flex-col md:flex-row justify-start items-start gap-3">
             <div className="flex-1 w-full px-4 py-3 bg-[#fbfdfd] rounded-lg outline outline-[1.50px] outline-offset-[-1.50px] outline-black/0 flex justify-start items-center gap-2">
               <input className="flex-1 bg-transparent text-[#132a2e] text-lg md:text-xl font-normal font-['Public_Sans'] placeholder:text-[#132a2e]/40 outline-none" placeholder="Enter your email" />
             </div>
