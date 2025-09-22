@@ -171,6 +171,6 @@
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .cta-mobile-penguin {
-    transform: translate(-50%, -155px);
+    transform: translate(-50%, -160px);
   }
 }
