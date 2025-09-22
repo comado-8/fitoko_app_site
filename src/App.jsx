@@ -231,7 +231,7 @@ function App() {
             width="360"
             height="140"
             alt="とこペン モバイル"
-            className="lg:hidden absolute top-0 left-1/2 w-[160px] sm:w-[180px] max-w-[60%] -translate-x-1/2 -translate-y-[90px] pointer-events-none select-none"
+            className="lg:hidden absolute top-0 left-1/2 w-[160px] sm:w-[180px] max-w-[60%] -translate-x-1/2 -translate-y-[135px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
