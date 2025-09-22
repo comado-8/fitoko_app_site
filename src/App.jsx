@@ -32,6 +32,8 @@ import asset38 from './assets/1-1320.svg'
 import asset39 from './assets/1-1311.svg'
 import asset40 from './assets/1-1302.svg'
 import asset42 from './assets/143-92.svg'
+import tokopenStanding from './assets/tokopen01.webp'
+import tokopenRelax from './assets/tokopen02.webp'
 
 const navItems = [
   { label: '特徴', target: 'features', icon: asset38 },
