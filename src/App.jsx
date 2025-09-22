@@ -205,7 +205,7 @@ function App() {
         {/* CTA Section */}
         <section
           id="waitlist"
-          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] rounded-[20px] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
         >
           <img
             src={tokopenStanding}
@@ -221,7 +221,7 @@ function App() {
             width="210"
             height="170"
             alt="寝転ぶとこペン"
-            className="hidden md:block absolute right-[8px] md:right-0 bottom-[60px] md:bottom-[72px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
+            className="hidden md:block absolute right-[48px] md:right-[56px] bottom-[60px] md:bottom-[72px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
