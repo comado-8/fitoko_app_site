@@ -34,6 +34,7 @@ import asset40 from './assets/1-1302.svg'
 import asset42 from './assets/143-92.svg'
 import tokopenStanding from './assets/tokopen01.webp'
 import tokopenRelax from './assets/tokopen02.webp'
+import tokopenMobile from './assets/tokopen03_sponly.png'
 
 const navItems = [
   { label: '特徴', target: 'features', icon: asset38 },
@@ -212,7 +213,7 @@ function App() {
             width="230"
             height="230"
             alt="手を振るとこペン"
-            className="hidden md:block absolute left-[-120px] md:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] lg:w-[240px] xl:w-[260px] rotate-[12deg] pointer-events-none select-none"
+            className="hidden lg:block absolute left-[-120px] xl:left-[-100px] top-1/2 -translate-y-1/2 w-[200px] lg:w-[230px] xl:w-[260px] rotate-[12deg] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
@@ -221,7 +222,16 @@ function App() {
             width="210"
             height="170"
             alt="寝転ぶとこペン"
-            className="hidden md:block absolute right-[48px] md:right-[56px] bottom-[60px] md:bottom-[72px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
+            className="hidden lg:block absolute right-[48px] xl:right-[56px] bottom-[60px] xl:bottom-[72px] w-[190px] lg:w-[210px] xl:w-[230px] pointer-events-none select-none"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src={tokopenMobile}
+            width="360"
+            height="140"
+            alt="とこペン モバイル"
+            className="md:hidden absolute top-0 left-1/2 w-[300px] sm:w-[340px] max-w-[80%] -translate-x-1/2 -translate-y-[55px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
