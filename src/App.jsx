@@ -206,7 +206,7 @@ function App() {
         {/* CTA Section */}
         <section
           id="waitlist"
-          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
+          className="relative mt-24 md:mt-32 w-full px-4 md:px-12 py-[50px] md:py-[96px] bg-gradient-to-b from-[#ffe066] via-[#ffd954] to-[#ffc94d] shadow-[3px_3px_0_#c39c1f] overflow-visible lg:overflow-hidden flex flex-col justify-center items-center gap-[30px] md:gap-[45px] scroll-mt-24"
         >
           <img
             src={tokopenStanding}
@@ -231,7 +231,7 @@ function App() {
             width="360"
             height="140"
             alt="とこペン モバイル"
-            className="md:hidden absolute top-0 left-1/2 w-[160px] sm:w-[180px] max-w-[60%] -translate-x-1/2 -translate-y-[70px] pointer-events-none select-none"
+            className="lg:hidden absolute top-0 left-1/2 w-[160px] sm:w-[180px] max-w-[60%] -translate-x-1/2 -translate-y-[90px] pointer-events-none select-none"
             loading="lazy"
             decoding="async"
           />
